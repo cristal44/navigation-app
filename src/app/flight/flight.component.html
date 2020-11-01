@@ -1,0 +1,50 @@
+
+<div class="container">
+  <h2 class="text-center">Travel Request</h2>
+  <form>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="origination">Origination Airport</label>
+        <input type="text" class="form-control" id="origination" placeholder="City or airport" [(ngModel)]="origin" name="origin">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="destination">Destination Airport</label>
+      <input type="text" class="form-control" id="destination" placeholder="City or airport" [(ngModel)]="dest" name="dest">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="passengers">Number of passengers</label>
+        <input type="text" class="form-control" id="passengers" placeholder="Enter a number" [(ngModel)]="passengers" name="passengers">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="date">Travel Date</label>
+        <input type="date" class="form-control" id="date" placeholder="mm/dd/yyyy" [(ngModel)]="date" name="date">
+      </div>
+    </div>
+  </form>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <button type="button" class="form-control btn btn-primary btn-lg btn-block"  (click)="calculate()">Submit</button>
+    </div>
+    <div class="form-group col-md-6">
+      <button type="submit" class="form-control btn btn-primary btn-lg btn-block" (click)="reset()">Reset</button>
+    </div>
+  </div>
+
+  <div class="row justify-content-md-center" *ngIf="isShow">
+    <div>
+      <hr>
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item">Origination Airport: {{origin}}</li>
+        <li class="list-group-item">Destination Airport: {{dest}}</li>
+        <li class="list-group-item">Number of passengers: {{passengers}}</li>
+        <li class="list-group-item">Travel Date: {{date | date | uppercase}} </li>
+      </ul>
+
+      <h3 class="text-center">Total cost: {{total}}</h3>
+  </div>
+
+</div>
